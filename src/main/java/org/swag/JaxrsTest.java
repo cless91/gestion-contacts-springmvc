@@ -11,7 +11,7 @@ import javax.ws.rs.core.UriInfo;
 /**
  * Root resource (exposed at "helloworld" path)
  */
-@Path("/hello")
+@Path("/")
 public class JaxrsTest {
 	@Context
 	private UriInfo context;
