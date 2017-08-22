@@ -1,4 +1,4 @@
-<html>
+<html ng-app="myApp">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,34 +32,9 @@
 					</div>
 				</div>
 			</div>
-
+			
 			<div class="middlePane col-sm-9">
-				<!-- 			élément à répéter plusieurs fois -->
-
-				<div class="row contact">
-					<div class="col-md-2">
-						<img src="images/contact_head.png" class="img"
-							alt="Responsive image">
-					</div>
-					<div class="col-md-4">nom</div>
-					<div class="col-md-4">prénom</div>
-					<div class="col-md-2">
-						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle" type="button"
-								id="about-us" data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">About Us</button>
-							<div class="dropdown-menu" aria-labelledby="about-us">
-								<a class="dropdown-item" href="#">Our Story</a> <a
-									class="dropdown-item" href="#">Our Team</a> <a
-									class="dropdown-item" href="#">Contact Us</a> <a
-									class="dropdown-item" href="#">Contact Us</a> <a
-									class="dropdown-item" href="#">Contact Us</a> <a
-									class="dropdown-item" href="#">Contact Us</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
+				<contacts-list></contacts-list>
 			</div>
 
 		</div>
@@ -80,6 +55,8 @@
 
 
 	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/angular_app/app.js"></script>
+
 	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 	<!-- Popper -->
 	<script

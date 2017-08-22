@@ -1,0 +1,24 @@
+<div class="row contactCss" ng-repeat="contact in contacts">
+	<div class="col-md-2">
+		<img src="images/contact_head.png" class="img" alt="Responsive image">
+	</div>
+	<div class="col-md-2">{{contact.nom}}</div>
+	<div class="col-md-2">{{contact.prenom}}</div>
+	<div class="col-md-2">{{contact.mail}}</div>
+	<div class="col-md-2">{{contact.telephone}}</div>
+	<div class="col-md-2">
+		<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button"
+				id="about-us" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false">About Us</button>
+			<div class="dropdown-menu" aria-labelledby="about-us">
+				<a class="dropdown-item" href="#">Our Story</a> <a
+					class="dropdown-item" href="#">Our Team</a> <a
+					class="dropdown-item" href="#">Contact Us</a> <a
+					class="dropdown-item" href="#">Contact Us</a> <a
+					class="dropdown-item" href="#">Contact Us</a> <a
+					class="dropdown-item" href="#">Contact Us</a>
+			</div>
+		</div>
+	</div>
+</div>
