@@ -14,5 +14,6 @@ CREATE TABLE IF NOT EXISTS contacts(
     mail varchar(255),
     telephone varchar(20),
     photo mediumblob,
+    user_id integer NOT NULL,
     PRIMARY KEY(ID)
 );

@@ -1,8 +1,8 @@
-package dao;
+package org.swag.dao;
 
 import java.util.List;
 
-import entities.Contact;
+import org.swag.entities.Contact;
 
 public interface ContactsDAO {
 	public void createContact(Integer userId, String nom, String prenom, String mail, String telephone);

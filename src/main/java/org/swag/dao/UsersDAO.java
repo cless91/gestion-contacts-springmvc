@@ -1,8 +1,8 @@
-package dao;
+package org.swag.dao;
 
 import java.util.List;
 
-import entities.User;
+import org.swag.entities.User;
 
 public interface UsersDAO {
 	public void createUser(String login, String pass, String mail);

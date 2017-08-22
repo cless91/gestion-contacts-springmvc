@@ -1,4 +1,4 @@
-package entities;
+package org.swag.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

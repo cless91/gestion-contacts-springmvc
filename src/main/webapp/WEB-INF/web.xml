@@ -4,21 +4,29 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 	
 	<servlet>
-		<servlet-name>jersey-serlvet</servlet-name>
-		<servlet-class>
-                     org.glassfish.jersey.servlet.ServletContainer
-                </servlet-class>
+		<servlet-name>SpringApplication</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
 		<init-param>
-		     <param-name>jersey.config.server.provider.packages</param-name>
-		     <param-value>ws</param-value>
+			<param-name>jersey.config.server.provider.classnames</param-name>
+			<param-value>org.swag.rest.UserService</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>jersey-serlvet</servlet-name>
-		<url-pattern>/services/*</url-pattern>
+		<servlet-name>SpringApplication</servlet-name>
+		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
+	
 </web-app>

@@ -1,15 +1,20 @@
-package dao.impl;
+package org.swag.dao.mysql;
 
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
+import org.swag.dao.UsersDAO;
+import org.swag.entities.User;
 
-import dao.UsersDAO;
-import entities.User;
-
+@Repository
 public class UsersDAOImpl implements UsersDAO {
 	protected SessionFactory sessionFactory;
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 
 	@Override
 	public void createUser(String login, String pass, String mail) {
@@ -69,10 +74,6 @@ public class UsersDAOImpl implements UsersDAO {
 
 		session.getTransaction().commit();
 		session.close();
-	}
-
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
 	}
 
 }

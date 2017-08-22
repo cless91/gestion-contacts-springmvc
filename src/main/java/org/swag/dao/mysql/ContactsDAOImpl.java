@@ -1,15 +1,23 @@
-package dao.impl;
+package org.swag.dao.mysql;
 
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.swag.dao.ContactsDAO;
+import org.swag.entities.Contact;
 
-import dao.ContactsDAO;
-import entities.Contact;
-
+@Component
 public class ContactsDAOImpl implements ContactsDAO {
+
+	@Autowired
 	protected SessionFactory sessionFactory;
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 
 	@Override
 	public void createContact(Integer userId, String nom, String prenom, String mail, String telephone) {
@@ -73,10 +81,6 @@ public class ContactsDAOImpl implements ContactsDAO {
 
 		session.getTransaction().commit();
 		session.close();
-	}
-
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
 	}
 
 	@Override
