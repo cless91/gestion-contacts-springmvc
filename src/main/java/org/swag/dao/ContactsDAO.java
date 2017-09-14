@@ -11,7 +11,8 @@ public interface ContactsDAO {
 
 	public List<Contact> getContacts();
 
-	public void updateContact(Integer contactId, String nom, String prenom, String mail, String telephone);
+	public void updateContact(Integer userId, Integer contactId, String nom, String prenom, String mail,
+			String telephone);
 
 	public void deleteContact(Integer contactId);
 }

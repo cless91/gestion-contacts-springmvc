@@ -80,4 +80,24 @@ public class ContactsService {
 
 		return retour.toString();
 	}
+
+	@POST
+	@Path("/updateContact")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String updateContact(final UpdateContactJaxBean nouveauContact)
+			throws JsonGenerationException, JsonMappingException, IOException {
+		JSONObject retour = new JSONObject();
+		try {
+			contactsDAO.updateContact(nouveauContact.userId, nouveauContact.contactId, nouveauContact.nom,
+					nouveauContact.prenom, nouveauContact.mail, nouveauContact.telephone);
+			retour.put("status", "ok");
+			retour.put("contacts", contactsDAO.getContacts());
+		} catch (Exception e) {
+			retour.put("status", "error");
+			retour.put("errorMessage", e.getMessage());
+		}
+		return retour.toString();
+
+	}
 }

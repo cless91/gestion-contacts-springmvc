@@ -51,8 +51,10 @@ public class ContactsDAOImpl implements ContactsDAO {
 	}
 
 	@Override
-	public void updateContact(Integer contactId, String nom, String prenom, String mail, String telephone) {
+	public void updateContact(Integer userId, Integer contactId, String nom, String prenom, String mail,
+			String telephone) {
 		Contact contact = new Contact();
+		contact.setUserId(userId);
 		contact.setID(contactId);
 		contact.setNom(nom);
 		contact.setPrenom(prenom);
