@@ -52,6 +52,5 @@ footer {
 
 .contactCss > [class*='col-'] {
 	 display: flex;
-	 flex-direction: column;
 	 flex-direction: row;
 }

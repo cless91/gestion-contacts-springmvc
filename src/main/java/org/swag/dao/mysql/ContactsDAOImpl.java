@@ -22,11 +22,11 @@ public class ContactsDAOImpl implements ContactsDAO {
 	@Override
 	public void createContact(Integer userId, String nom, String prenom, String mail, String telephone) {
 		Contact contact = new Contact();
-		contact.setUserId(userId);
 		contact.setNom(nom);
 		contact.setPrenom(prenom);
 		contact.setMail(mail);
 		contact.setTelephone(telephone);
+		contact.setUserId(userId);
 
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();

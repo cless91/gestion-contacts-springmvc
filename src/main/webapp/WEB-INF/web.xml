@@ -19,7 +19,7 @@
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
 		<init-param>
 			<param-name>jersey.config.server.provider.classnames</param-name>
-			<param-value>org.swag.rest.UserService</param-value>
+			<param-value>org.swag.rest.ContactsService</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
