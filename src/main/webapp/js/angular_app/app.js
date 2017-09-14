@@ -9,6 +9,15 @@ component('contactsList', {
 	}
 });
 
+app.controller("MyCtrl", function($scope, $http){
+	$scope.ctrlClickHandler = function(id){
+		console.log("contact "+id+" to be deleted")
+		$http.delete('http://localhost:8080/webapp-test-maven/rest/deleteContact/'+id).then(function(response) {
+			console.log("contact "+id+" deleted");
+			$scope.contacts = response.data.contacts;
+		});
+	}       
+});
 
 app.controller('ModalDemoCtrl', function ($scope, $uibModal, $log, $document) {
 	var $ctrl = this;
@@ -75,11 +84,15 @@ app.controller('ModalDemoCtrl', function ($scope, $uibModal, $log, $document) {
 	};
 });
 
-// Please note that $uibModalInstance represents a modal window (instance) dependency.
-// It is not the same as the $uibModal service used above.
+//Please note that $uibModalInstance represents a modal window (instance) dependency.
+//It is not the same as the $uibModal service used above.
 
 angular.module('myApp').controller('ModalInstanceCtrl', function ($http, $scope, $uibModalInstance) {
 	var $ctrl = this;
+
+	$ctrl.toto = function(){
+		console.log("plouf");
+	};
 
 	$ctrl.ok = function () {
 		console.log($scope.nomValue);
@@ -89,11 +102,11 @@ angular.module('myApp').controller('ModalInstanceCtrl', function ($http, $scope,
 				"prenom":$scope.prenomValue, 
 				"mail":$scope.mailValue, 
 				"telephone":$scope.telephoneValue};
-	
+
 		$http.post('http://localhost:8080/webapp-test-maven/rest/createContact',data).then(function(response) {
 			$scope.contacts = response.data.contacts;
 		});
-		
+
 		$uibModalInstance.close('toto');
 	};
 
@@ -102,7 +115,7 @@ angular.module('myApp').controller('ModalInstanceCtrl', function ($http, $scope,
 	};
 });
 
-// Please note that the close and dismiss bindings are from $uibModalInstance.
+//Please note that the close and dismiss bindings are from $uibModalInstance.
 
 angular.module('myApp').component('modalComponent', {
 	templateUrl: 'myModalContent.html',

@@ -7,7 +7,9 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +37,7 @@ public class ContactsService {
 
 	@GET
 	@Path("/getContacts")
-	@Produces("application/json")
+	@Produces(MediaType.APPLICATION_JSON)
 	public String getContacts() throws JsonGenerationException, JsonMappingException, IOException {
 		String jsonInString = this.mapper.writeValueAsString(contactsDAO.getContacts());
 		return jsonInString;
@@ -43,8 +45,8 @@ public class ContactsService {
 
 	@POST
 	@Path("/createContact")
-	@Consumes("application/json")
-	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public String createContact(final NewContactJaxBean nouveauContact)
 			throws JsonGenerationException, JsonMappingException, IOException {
 		JSONObject retour = new JSONObject();
@@ -62,15 +64,13 @@ public class ContactsService {
 	}
 
 	@DELETE
-	@Path("/deleteContact")
-	@Consumes("application/json")
-	@Produces("application/json")
-	public String deleteContact(final NewContactJaxBean contactASupprimer)
+	@Path("/deleteContact/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String deleteContact(@PathParam("id") Integer id)
 			throws JsonGenerationException, JsonMappingException, IOException {
 		JSONObject retour = new JSONObject();
 		try {
-			contactsDAO.createContact(contactASupprimer.userId, contactASupprimer.nom, contactASupprimer.prenom,
-					contactASupprimer.mail, contactASupprimer.telephone);
+			contactsDAO.deleteContact(id);
 			retour.put("status", "ok");
 			retour.put("contacts", contactsDAO.getContacts());
 		} catch (Exception e) {
@@ -79,6 +79,5 @@ public class ContactsService {
 		}
 
 		return retour.toString();
-
 	}
 }
