@@ -1,25 +1,6 @@
-var app = angular.module('myApp', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
-app.
-component('contactsList', {
-	templateUrl: 'contactsList.template.html',
-	controller: function GreetUserController($scope, $http) {
-		$http.get('http://localhost:8080/webapp-test-maven/rest/getContacts').then(function(response) {
-			$scope.contacts = response.data;
-		});
-	}
-});
+var app = angular.module('myApp', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'contactsList']);
 
-app.controller("MyCtrl", function($scope, $http){
-	$scope.ctrlClickHandler = function(id){
-		console.log("contact "+id+" to be deleted")
-		$http.delete('http://localhost:8080/webapp-test-maven/rest/deleteContact/'+id).then(function(response) {
-			console.log("contact "+id+" deleted");
-			$scope.contacts = response.data.contacts;
-		});
-	}       
-});
-
-app.controller('ModalDemoCtrl', function ($scope, $uibModal, $log, $document) {
+app.controller('CreateUserController', function ($scope, $uibModal, $log, $document) {
 	var $ctrl = this;
 
 	$ctrl.animationsEnabled = true;

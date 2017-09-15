@@ -44,7 +44,7 @@
 			</div>
 
 			<div class="middlePane col-sm-9">
-				<div ng-controller="ModalDemoCtrl as $ctrl" class="modal-demo">
+				<div ng-controller="CreateUserController as $ctrl" class="modal-demo">
 					<script type="text/ng-template" id="myModalContent.html"/>
 		<div class="modal-header">
 			<h3 class="modal-title" id="modal-title">I'm a modal!</h3>
@@ -119,8 +119,10 @@
 		src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
 	<script
 		src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
-
-	<script type="text/javascript" src="js/angular_app/app.js"></script>
+	
+	<script type="text/javascript" src="app/app.module.js"></script>
+	<script type="text/javascript" src="app/contacts-list/contacts-list.module.js"></script>
+	<script type="text/javascript" src="app/contacts-list/contacts-list.component.js"></script>
 
 	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 
